@@ -1,19 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #05050a;
-  --color-surface: #0a0a12;
-  --color-primary: #160c28;
-  --color-secondary: #4c2858;
-  --color-accent: #0f172a;
-  --color-highlight: #d8b4e2;
-  --color-muted: #a1a1aa;
-  --color-muted-foreground: #71717a;
-  --color-foreground: #ffffff;
+  --color-background: #05050A;
+  --color-secondary: #160C28;
+  --color-primary: #4C2858;
+  --color-highlight: #D8B4E2;
+  --color-foreground: #FFFFFF;
 
   --font-garamond: 'Cormorant Garamond', serif;
   --font-manrope: 'Manrope', sans-serif;
   --font-noto: 'Noto Serif JP', serif;
+
+  --animate-breathe: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 @layer base {
@@ -36,7 +45,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-manrope);
+    font-family: var(--font-manrope), serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
@@ -66,5 +75,16 @@
   h5,
   h6 {
     overflow-wrap: break-word;
+  }
+}
+
+@layer utilities {
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    mix-blend-mode: overlay;
   }
 }
