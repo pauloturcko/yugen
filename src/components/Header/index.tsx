@@ -1,33 +1,33 @@
-import { useState, useEffect } from 'react';
-import {motion} from 'framer-motion';
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '../Button'
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
-    };
+      setIsScrolled(window.scrollY > window.innerHeight - 100)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-24 transition-[padding,background-color,border-color,border-radius,box-shadow,backdrop-filter] duration-300 ease-in-out md:inset-x-12 md:w-auto ${
+      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-8 transition-[padding,background-color,border-color,border-radius,box-shadow,backdrop-filter] duration-300 ease-in-out md:inset-x-12 md:w-auto lg:px-24 ${
         isScrolled || isOpen
           ? 'bg-background/90 border-b border-white/5 py-4 shadow-md backdrop-blur-md md:rounded-b-3xl md:border'
           : 'border-transparent bg-transparent pt-8 pb-4'
       }`}
     >
       <div className="font-noto relative z-50 flex items-center gap-2">
-        <p className="text-highlight font-noto flex h-7 w-7 items-center justify-center rounded-full border border-secondary text-[10px] leading-none shadow-lg shadow-secondary/50">
+        <p className="text-highlight font-noto border-secondary shadow-secondary/50 flex h-7 w-7 items-center justify-center rounded-full border text-[10px] leading-none shadow-lg">
           幽
         </p>
         <h1 className="font-garamond text-lg font-normal tracking-wider">
@@ -85,7 +85,7 @@ export const Header = () => {
             : 'pointer-events-none invisible -translate-y-4 opacity-0'
         }`}
       >
-        <ul className="text-white/60 text-md font-manrope flex flex-col items-start gap-2 px-6 py-6 tracking-widest">
+        <ul className="text-md font-manrope flex flex-col items-start gap-2 px-6 py-6 tracking-widest text-white/60">
           {['Manifesto', 'Features', 'Pricing', 'FAQ'].map((item) => (
             <li
               key={item}
@@ -105,4 +105,4 @@ export const Header = () => {
       </div>
     </motion.header>
   )
-};
+}

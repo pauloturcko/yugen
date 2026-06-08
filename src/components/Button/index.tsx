@@ -1,13 +1,13 @@
-import { type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { type ButtonHTMLAttributes, type ReactNode } from 'react'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  bg?: string;
-  padding?: string;
-  borderColor?: string;
-  textColor?: string;
-  fontSize?: string;
-  width?: string;
+  children: ReactNode
+  bg?: string
+  padding?: string
+  borderColor?: string
+  textColor?: string
+  fontSize?: string
+  width?: string
 }
 
 export const Button = ({
@@ -21,14 +21,14 @@ export const Button = ({
   className = '',
   ...props
 }: ButtonProps) => {
-  const borderClasses = borderColor ? `border ${borderColor}` : '';
+  const borderClasses = borderColor ? `border ${borderColor}` : ''
 
   return (
     <button
-      className={`inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:pointer-events-none ${bg} ${textColor} ${fontSize} ${width} ${padding} ${borderClasses} ${className}`}
+      className={`${className || 'inline-flex'} items-center justify-center rounded-full font-medium transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:pointer-events-none disabled:opacity-50 ${bg} ${textColor} ${fontSize} ${width} ${padding} ${borderClasses}`}
       {...props}
     >
       {children}
     </button>
-  );
-};
+  )
+}
