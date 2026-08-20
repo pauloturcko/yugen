@@ -34,8 +34,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   blurStrength = 4,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom',
+  rotationEnd = 'bottom center',
+  wordAnimationEnd = 'bottom center',
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null)
 
@@ -63,70 +63,53 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         ? scrollContainerRef.current
         : window
 
-    if (baseRotation !== 0) {
-      gsap.fromTo(
-        el,
-        { transformOrigin: '0% 50%', rotate: baseRotation },
-        {
-          ease: 'none',
-          rotate: 0,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: 'top bottom',
-            end: rotationEnd,
-            scrub: true,
+    const ctx = gsap.context(() => {
+      if (baseRotation !== 0) {
+        gsap.fromTo(
+          el,
+          { transformOrigin: '0% 50%', rotate: baseRotation },
+          {
+            ease: 'none',
+            rotate: 0,
+            scrollTrigger: {
+              trigger: el,
+              scroller,
+              start: 'top bottom',
+              end: rotationEnd,
+              scrub: true,
+            },
           },
-        },
-      )
-    }
+        )
+      }
 
-    const wordElements = el.querySelectorAll<HTMLElement>('.word')
+      const wordElements = el.querySelectorAll<HTMLElement>('.word')
 
-    gsap.fromTo(
-      wordElements,
-      {
-        opacity: baseOpacity,
-        y: baseTranslationY,
-        willChange: 'opacity, transform',
-      },
-      {
-        ease: 'none',
-        opacity: 1,
-        y: 0,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: 'top bottom-=20%',
-          end: wordAnimationEnd,
-          scrub: true,
-        },
-      },
-    )
-
-    if (enableBlur) {
       gsap.fromTo(
         wordElements,
-        { filter: `blur(${blurStrength}px)` },
+        {
+          opacity: baseOpacity,
+          y: baseTranslationY,
+          filter: enableBlur ? `blur(${blurStrength}px)` : 'none',
+          willChange: 'opacity, transform, filter',
+        },
         {
           ease: 'none',
-          filter: 'blur(0px)',
+          opacity: 1,
+          y: 0,
+          filter: enableBlur ? 'blur(0px)' : 'none',
           stagger: 0.05,
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=20%',
+            start: 'top 85%',
             end: wordAnimationEnd,
             scrub: true,
           },
         },
       )
-    }
+    }, containerRef)
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
+    return () => ctx.revert()
   }, [
     scrollContainerRef,
     enableBlur,

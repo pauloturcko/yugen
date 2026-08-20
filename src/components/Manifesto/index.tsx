@@ -12,16 +12,16 @@ export const Manifesto = () => {
         </p>
         <div>
           <ScrollReveal
-            baseOpacity={0.2}
+            baseOpacity={0.15}
             enableBlur={true}
             baseRotation={2}
             blurStrength={4}
             rotationEnd="bottom center"
-            wordAnimationEnd="bottom bottom"
+            wordAnimationEnd="bottom center"
             containerClassName="max-w-5xl px-4 md:px-0"
             textClassName="
               font-noto
-              text-white/50
+              text-white
               text-2xl
               sm:text-3xl
               md:text-4xl
