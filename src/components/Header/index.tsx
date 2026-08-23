@@ -1,29 +1,45 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { Button } from '../Button'
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { scrollY } = useScroll()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight - 100)
+    const updateScroll = () => {
+      const top =
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0
+      setIsScrolled(top > 40)
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    updateScroll()
+
+    const unsubscribe = scrollY.on('change', (latest) => {
+      setIsScrolled(latest > 40)
+    })
+
+    window.addEventListener('scroll', updateScroll, { passive: true })
+
+    return () => {
+      unsubscribe()
+      window.removeEventListener('scroll', updateScroll)
+    }
+  }, [scrollY])
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-8 transition-[padding,background-color,border-color,border-radius,box-shadow,backdrop-filter] duration-300 ease-in-out md:inset-x-12 md:w-auto lg:px-24 ${
+      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 md:px-16 lg:px-20 xl:px-[300px] transition-all duration-300 ease-in-out ${
         isScrolled || isOpen
-          ? 'bg-background/90 border-b border-white/5 py-4 shadow-md backdrop-blur-md md:rounded-b-3xl md:border'
-          : 'border-transparent bg-transparent pt-8 pb-4'
+          ? 'bg-background/90 border-b border-white/10 py-4 shadow-lg backdrop-blur-md'
+          : 'bg-transparent border-b border-transparent pt-8 pb-5'
       }`}
     >
       <div className="font-noto relative z-50 flex items-center gap-2">

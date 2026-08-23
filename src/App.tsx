@@ -5,12 +5,14 @@ import { Manifesto } from './components/Manifesto'
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen w-full bg-background text-foreground overflow-x-hidden">
       <Header />
-      <Home />
-      <Manifesto />
-      <FocusTimer />
-    </>
+      <main className="flex flex-col w-full">
+        <Home />
+        <Manifesto />
+        <FocusTimer />
+      </main>
+    </div>
   )
 }
 
