@@ -4,7 +4,7 @@ export const Manifesto = () => {
   return (
     <section
       id="manifesto"
-      className="relative flex min-h-fit w-full flex-col items-center justify-center overflow-hidden px-6 py-24 text-center sm:py-32 md:py-48 lg:py-64"
+      className="relative flex min-h-fit w-full flex-col items-center justify-center overflow-hidden py-24 text-center sm:py-32 md:py-48 lg:py-64 px-6 md:px-16 lg:px-20 xl:px-[300px]"
     >
       <div className="relative z-20">
         <p className="font-noto text-highlight/50 mb-4 text-xl font-light tracking-widest uppercase">
@@ -18,7 +18,7 @@ export const Manifesto = () => {
             blurStrength={4}
             rotationEnd="bottom center"
             wordAnimationEnd="bottom center"
-            containerClassName="max-w-5xl px-4 md:px-0"
+            containerClassName="max-w-5xl"
             textClassName="
               font-noto
               text-white

@@ -40,11 +40,11 @@ export const Home = () => {
         <div className="from-background/80 to-background/80 absolute inset-0 bg-linear-to-r via-transparent" />
       </motion.div>
 
-      <div className="bg-primary animate-breathe pointer-events-none absolute top-3/5 left-9/12 z-0 h-175 w-175 -translate-x-1/2 rounded-full opacity-30 blur-[180px]" />
+      <div className="bg-primary animate-breathe pointer-events-none absolute top-[48%] left-[62%] z-0 h-175 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-[180px]" />
 
       <div className="noise-overlay z-10" />
 
-      <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div className="relative z-20 flex h-full w-full flex-col items-center justify-center px-6 md:px-16 lg:px-20 xl:px-[300px] text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export const Home = () => {
           <Button
             padding="p-3.5"
             fontSize="text-sm"
-            width="w-xs"
+            width="w-full sm:w-xs"
           >
             Enter the Flow
           </Button>
@@ -119,7 +119,7 @@ export const Home = () => {
             borderColor="text-white/60"
             padding="p-3.5"
             fontSize="text-sm"
-            width="w-xs"
+            width="w-full sm:w-xs"
           >
             Read the manifesto
           </Button>
