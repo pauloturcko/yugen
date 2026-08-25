@@ -36,7 +36,7 @@ export const FocusTimer = () => {
   return (
     <section
       id="focus-timer"
-      className="relative flex min-h-fit w-full flex-col items-center justify-center gap-16 lg:gap-24 overflow-hidden py-24 text-center px-6 md:px-16 lg:px-20 xl:px-[300px] lg:flex-row lg:justify-between lg:text-left"
+      className="relative flex min-h-fit w-full flex-col items-center justify-center gap-16 lg:gap-24 overflow-hidden py-24 text-center px-[49px] md:px-[89px] lg:px-[105px] xl:px-[325px] lg:flex-row lg:justify-between lg:text-left"
     >
       <motion.div
         className="w-full max-w-xl space-y-8"
