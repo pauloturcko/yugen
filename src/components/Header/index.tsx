@@ -36,10 +36,10 @@ export const Header = () => {
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-[49px] md:px-[89px] lg:px-[105px] xl:px-[325px] transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-[49px] transition-all duration-300 ease-in-out md:px-[89px] lg:px-[105px] xl:px-[325px] ${
         isScrolled || isOpen
           ? 'bg-background/90 border-b border-white/10 py-4 shadow-lg backdrop-blur-md'
-          : 'bg-transparent border-b border-transparent pt-8 pb-5'
+          : 'border-b border-transparent bg-transparent pt-8 pb-5'
       }`}
     >
       <div className="font-noto relative z-50 flex items-center gap-2">

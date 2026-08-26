@@ -1,3 +1,4 @@
+import { DigitalBoundaries } from './components/DigitalBoundaries'
 import { FocusTimer } from './components/FocusTimer'
 import { Header } from './components/Header'
 import { Home } from './components/Home'
@@ -13,6 +14,7 @@ function App() {
         <Manifesto />
         <FocusTimer />
         <SoundScapes />
+        <DigitalBoundaries />
       </main>
     </div>
   )

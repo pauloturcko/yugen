@@ -44,7 +44,7 @@ export const Home = () => {
 
       <div className="noise-overlay z-10" />
 
-      <div className="relative z-20 flex h-full w-full flex-col items-center justify-center px-[49px] md:px-[89px] lg:px-[105px] xl:px-[325px] text-center">
+      <div className="relative z-20 flex h-full w-full flex-col items-center justify-center px-[49px] text-center md:px-[89px] lg:px-[105px] xl:px-[325px]">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

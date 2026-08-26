@@ -4,7 +4,7 @@ export const Manifesto = () => {
   return (
     <section
       id="manifesto"
-      className="relative flex min-h-fit w-full flex-col items-center justify-center overflow-hidden py-24 text-center sm:py-32 md:py-48 lg:py-64 px-[49px] md:px-[89px] lg:px-[105px] xl:px-[325px]"
+      className="relative flex min-h-fit w-full flex-col items-center justify-center overflow-hidden px-[49px] py-24 text-center sm:py-32 md:px-[89px] md:py-48 lg:px-[105px] lg:py-64 xl:px-[325px]"
     >
       <div className="relative z-20">
         <p className="font-noto text-highlight/50 mb-4 text-xl font-light tracking-widest uppercase">

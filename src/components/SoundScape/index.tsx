@@ -48,7 +48,7 @@ export const SoundScapes = () => {
   return (
     <section
       id="soundscapes"
-      className="relative flex min-h-fit w-full flex-col items-center justify-center gap-12 overflow-hidden px-6 py-20 sm:px-[49px] sm:py-24 md:px-[89px] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-[105px] lg:text-left xl:px-[325px]"
+      className="relative flex min-h-fit w-full flex-col items-center justify-center gap-12 overflow-hidden px-6 py-28 sm:px-[49px] sm:py-36 md:px-[89px] md:py-44 lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-[105px] lg:text-left xl:px-[325px]"
     >
       <div className="bg-primary/20 pointer-events-none absolute top-1/2 left-1/4 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px]" />
 
