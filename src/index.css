@@ -12,6 +12,7 @@
   --font-noto: 'Noto Serif JP', serif;
 
   --animate-breathe: breathe 6s ease-in-out infinite;
+  --animate-marquee: marquee 45s linear infinite;
 }
 
 @keyframes breathe {
@@ -23,6 +24,15 @@
   50% {
     transform: scale(1.05);
     opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
