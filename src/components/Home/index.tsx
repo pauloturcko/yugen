@@ -30,10 +30,16 @@ export const Home = () => {
       <motion.div
         style={{ y }}
         className="absolute inset-0 z-0"
+        aria-hidden="true"
       >
         <img
           src={homeBg}
           alt=""
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="h-full w-full object-cover opacity-30"
         />
         <div className="from-background to-background absolute inset-0 bg-linear-to-b via-transparent" />
@@ -59,7 +65,7 @@ export const Home = () => {
         <p className="font-noto text-highlight/50 mb-4 text-xl font-light">
           幽玄
         </p>
-        <motion.h2
+        <motion.h1
           variants={textContainer}
           initial="hidden"
           animate="show"
@@ -88,7 +94,7 @@ export const Home = () => {
               </motion.span>
             ))}
           </span>
-        </motion.h2>
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

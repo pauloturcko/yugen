@@ -105,7 +105,7 @@ export const SoundScapes = () => {
                   key={track.id}
                   type="button"
                   onClick={() => setActiveTrack(track)}
-                  className={`flex w-full cursor-pointer items-center justify-between rounded-xl border px-3 py-2 text-left transition-colors duration-150 focus:outline-none sm:rounded-2xl sm:px-3.5 sm:py-2.5 ${
+                  className={`focus-visible:ring-highlight focus-visible:ring-offset-background flex w-full cursor-pointer items-center justify-between rounded-xl border px-3 py-2 text-left transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:rounded-2xl sm:px-3.5 sm:py-2.5 ${
                     isSelected
                       ? 'border-white/10 bg-white/[0.07] shadow-sm'
                       : 'border-transparent text-white/60 hover:bg-white/3'
@@ -210,7 +210,7 @@ export const SoundScapes = () => {
                 onClick={() =>
                   setSelectedCategory(isSelected ? null : category)
                 }
-                className={`cursor-pointer rounded-xl border px-4 py-3 text-center text-sm font-light transition-colors duration-150 focus:outline-none sm:rounded-2xl sm:px-5 sm:py-3.5 lg:text-left ${
+                className={`focus-visible:ring-highlight focus-visible:ring-offset-background cursor-pointer rounded-xl border px-4 py-3 text-center text-sm font-light transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:rounded-2xl sm:px-5 sm:py-3.5 lg:text-left ${
                   isSelected
                     ? 'border-highlight/40 bg-white/10 text-white'
                     : 'border-white/10 bg-white/2 text-white/70 hover:border-white/20 hover:bg-white/6 hover:text-white'

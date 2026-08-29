@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import { Button } from '../Button'
 
+const NAV_LINKS = [
+  { label: 'Manifesto', href: '#manifesto' },
+  { label: 'Features', href: '#focus-timer' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
+]
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,6 +38,13 @@ export const Header = () => {
     }
   }, [scrollY])
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -30 }}
@@ -46,15 +60,16 @@ export const Header = () => {
         <p className="text-highlight font-noto border-secondary shadow-secondary/50 flex h-7 w-7 items-center justify-center rounded-full border text-[10px] leading-none shadow-lg">
           幽
         </p>
-        <h1 className="font-garamond text-lg font-normal tracking-wider">
+        <p className="font-garamond text-lg font-normal tracking-wider">
           Yūgen
-        </h1>
+        </p>
       </div>
 
       <button
-        className="relative z-50 flex h-3.5 w-5 flex-col justify-between focus:outline-none md:hidden"
+        className="focus-visible:ring-highlight focus-visible:ring-offset-background relative z-50 flex h-3.5 w-5 flex-col justify-between rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 md:hidden"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
+        aria-expanded={isOpen}
       >
         <span
           className={`bg-foreground h-0.5 w-full origin-center rounded-full transition-all duration-300 ease-in-out ${
@@ -73,15 +88,14 @@ export const Header = () => {
         />
       </button>
 
-      {/* Desktop Menu */}
       <nav className="font-manrope hidden gap-8 text-xs tracking-widest text-white/60 md:flex">
-        {['Manifesto', 'Features', 'Pricing', 'FAQ'].map((item) => (
+        {NAV_LINKS.map((item) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
+            key={item.label}
+            href={item.href}
             className="hover:text-highlight transition-colors duration-300"
           >
-            {item}
+            {item.label}
           </a>
         ))}
       </nav>
@@ -93,7 +107,6 @@ export const Header = () => {
         Begin
       </Button>
 
-      {/* Mobile Menu Dropdown */}
       <div
         className={`bg-background/90 absolute top-full left-0 z-40 w-full origin-top border-b border-white/5 backdrop-blur-md transition-all duration-300 ease-in-out md:hidden ${
           isOpen
@@ -102,17 +115,17 @@ export const Header = () => {
         }`}
       >
         <ul className="text-md font-manrope flex flex-col items-start gap-2 px-6 py-6 tracking-widest text-white/60">
-          {['Manifesto', 'Features', 'Pricing', 'FAQ'].map((item) => (
+          {NAV_LINKS.map((item) => (
             <li
-              key={item}
+              key={item.label}
               className="w-full"
             >
               <a
-                href={`#${item.toLowerCase()}`}
+                href={item.href}
                 className="hover:text-highlight block w-full border-b border-white/5 pb-2 transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             </li>
           ))}

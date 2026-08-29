@@ -209,7 +209,7 @@ export const DigitalBoundaries = () => {
                   key={app.id}
                   type="button"
                   onClick={() => toggleItem(app.id)}
-                  className={`flex w-full cursor-pointer items-center justify-between rounded-xl border px-3.5 py-3 text-left transition-colors duration-150 focus:outline-none sm:rounded-2xl ${
+                  className={`focus-visible:ring-highlight focus-visible:ring-offset-background flex w-full cursor-pointer items-center justify-between rounded-xl border px-3.5 py-3 text-left transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:rounded-2xl ${
                     isBlocked
                       ? 'border-white/10 bg-white/5 text-white hover:bg-white/10'
                       : 'border-transparent text-white/40 hover:bg-white/5'

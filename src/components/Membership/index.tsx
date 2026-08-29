@@ -135,7 +135,7 @@ export const Membership = () => {
         <button
           type="button"
           onClick={() => setBilling('monthly')}
-          className={`font-manrope cursor-pointer rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none ${
+          className={`font-manrope focus-visible:ring-highlight focus-visible:ring-offset-background cursor-pointer rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
             !isYearly
               ? 'bg-white text-[#0A0A0A]'
               : 'text-white/60 hover:text-white'
@@ -146,7 +146,7 @@ export const Membership = () => {
         <button
           type="button"
           onClick={() => setBilling('yearly')}
-          className={`font-manrope flex cursor-pointer items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none ${
+          className={`font-manrope focus-visible:ring-highlight focus-visible:ring-offset-background flex cursor-pointer items-center gap-2 rounded-full px-5 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
             isYearly
               ? 'bg-white text-[#0A0A0A]'
               : 'text-white/60 hover:text-white'

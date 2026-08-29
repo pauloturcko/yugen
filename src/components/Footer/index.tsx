@@ -1,20 +1,40 @@
+interface FooterLink {
+  label: string
+  href: string
+}
+
 interface FooterColumn {
   title: string
-  links: string[]
+  links: FooterLink[]
 }
 
 const COLUMNS: FooterColumn[] = [
   {
     title: 'PRODUCT',
-    links: ['Features', 'Pricing', 'Soundscape library', 'Changelog'],
+    links: [
+      { label: 'Features', href: '#focus-timer' },
+      { label: 'Pricing', href: '#pricing' },
+      { label: 'Soundscape library', href: '#soundscapes' },
+      { label: 'Changelog', href: '#' },
+    ],
   },
   {
     title: 'PRACTICE',
-    links: ['Manifesto', 'Field journal', 'Reading list', 'Community'],
+    links: [
+      { label: 'Manifesto', href: '#manifesto' },
+      { label: 'Field journal', href: '#' },
+      { label: 'Reading list', href: '#' },
+      { label: 'Community', href: '#' },
+    ],
   },
   {
     title: 'QUIET LEGAL',
-    links: ['Privacy', 'Terms', 'Refunds', 'Contact'],
+    links: [
+      { label: 'Privacy', href: '#' },
+      { label: 'Terms', href: '#' },
+      { label: 'Refunds', href: '#' },
+      { label: 'Contact', href: '#' },
+    ],
   },
 ]
 
@@ -43,12 +63,12 @@ export const Footer = () => {
             </p>
             <ul className="mt-4 space-y-3">
               {column.links.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
+                    href={link.href}
                     className="font-manrope hover:text-highlight text-sm font-light text-white/60 transition-colors duration-300"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}

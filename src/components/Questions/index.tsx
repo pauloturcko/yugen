@@ -103,7 +103,7 @@ export const Questions = () => {
                 type="button"
                 onClick={() => toggle(index)}
                 aria-expanded={isOpen}
-                className="flex w-full cursor-pointer items-center justify-between gap-4 py-6 text-left focus:outline-none"
+                className="focus-visible:ring-highlight focus-visible:ring-offset-background flex w-full cursor-pointer items-center justify-between gap-4 rounded-sm py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
               >
                 <span className="font-garamond text-lg font-light text-white sm:text-xl md:text-2xl">
                   {faq.question}
