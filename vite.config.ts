@@ -5,4 +5,17 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    target: 'esnext',
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('framer-motion')) return 'motion'
+          if (id.includes('gsap')) return 'gsap'
+          if (id.includes('node_modules')) return 'vendor'
+        },
+      },
+    },
+  },
 })

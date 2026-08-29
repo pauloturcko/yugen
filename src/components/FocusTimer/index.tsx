@@ -103,7 +103,6 @@ export const FocusTimer = () => {
         </motion.ul>
       </motion.div>
 
-      {/* Right: timer */}
       <div className="relative flex w-full max-w-sm items-center justify-center sm:max-w-md">
         <div className="relative aspect-square w-full">
           <div className="glass-strong ring-glow absolute inset-0 rounded-full" />
